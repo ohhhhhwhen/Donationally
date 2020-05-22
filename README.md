@@ -20,27 +20,27 @@
 
 This is the main log-in portal of the website. Users are prompted to provide a username and email which creates them an individual account.
 
-![Portal](src/components/images/Portal.png)
+![Portal](github/Portal.png)
 
 The About Us page describes our core values and motivation.
 
-![Aboutus](src/components/images/Aboutus.png)
+![Aboutus](github/Aboutus.png)
 
 The News page includes a search bar - users can look up worldwide news related to charities.
 
-![News](src/components/images/News.png)
+![News](github/News.png)
 
 The Charity Search page provides the user with a worldmap, and the ability to find charities by location.
 
-![Charitysearch](src/components/images/Charitysearch.png)
+![Charitysearch](github/Charitysearch.png)
 
 The Donate page includes a charity search bar, and custom buttons allowing the user to donate an amount of their choosing to their selected charity.
 
-![Donate](src/components/images/Donate.png)
+![Donate](github/Donate.png)
 
 The Contact Us page provides personal information / photos about the creators and founders of Donationally.com. There is also a "Review" section where users can ask questions or give comments.
 
-![Contact](src/components/images/Contactus.png)
+![Contact](github/Contactus.png)
 
 # Functionality
 ### Log-in System
