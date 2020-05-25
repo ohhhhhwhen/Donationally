@@ -23,7 +23,9 @@
 .only {
     width: 100%;
     height: auto;
+    overflow: hidden;
     box-shadow: 0px 12px 18px -6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px, 10px, 10px, 10px;
 }
 
 .responsive_div {
@@ -42,6 +44,30 @@
 .page_inner_div {
     padding-left: 15%;
     padding-right: 15%;
+}
+
+.page_intro_div {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#page_core_div {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Core Div*/
+
+.core_item {
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.core_caption {
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #7A9E9F;
 }
 
 #intro_h1 {

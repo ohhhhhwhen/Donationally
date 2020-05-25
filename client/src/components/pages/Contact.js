@@ -268,7 +268,7 @@ class Contact extends Component {
                     </Form.Group>
 
 
-                    <Button className="site-form__action" type="submit" className="btn btn-secondary btn-md btn-radius" disabled={isSending}>
+                    <Button className="site-form__action btn btn-secondary btn-md btn-radius" type="submit" disabled={isSending}>
                       {
                         isSending ? <span className="loading-icon"> </span> : 'Submit'
                       }

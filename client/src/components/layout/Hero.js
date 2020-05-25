@@ -79,7 +79,7 @@ function Hero() {
             muted
           // poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg"
           >
-            <source src={video} type="video/mp4"></source>
+            <source src={video} fluid="true" type="video/mp4"></source>
           </video>
         </div>
         <section className="hero__content hero__content--centered">
