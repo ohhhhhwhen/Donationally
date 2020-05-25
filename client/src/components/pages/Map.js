@@ -1,4 +1,7 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
+import { Form, Navbar, Button, Nav, NavDropdown, FormControl } from 'react-bootstrap';
+import { PushpinFilled } from '@ant-design/icons';
+import './style.css';
 
 
 var map;
@@ -10,44 +13,44 @@ var marker;
 var place;
 var markers = [];
 
-function callback (results, status) {
-    
+function callback(results, status) {
+
     function clearMarkers() {
         for (var i = 0; i < markers.length; i++) {
-          if (markers[i]) {
-            markers[i].setMap(null);
-          }
+            if (markers[i]) {
+                markers[i].setMap(null);
+            }
         }
-       
-        markers = [];
-        
 
-      }
+        markers = [];
+
+
+    }
     clearMarkers();
     clearResults();
     if (status == window.google.maps.places.PlacesServiceStatus.OK)
-    for (var i = 0; i < results.length; i++) {
-        createMarker(results[i], i);
-    }
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i], i);
+        }
 
     function clearResults() {
         var results = document.getElementById('results');
         while (results.childNodes[0]) {
-          results.removeChild(results.childNodes[0]);
+            results.removeChild(results.childNodes[0]);
         }
-      }
+    }
 
 }
-function createMarker (place, i) {
+function createMarker(place, i) {
     markers[i] = new window.google.maps.Marker({
         map: map,
         position: place.geometry.location
     });
-    window.google.maps.event.addListener(markers[i], 'click', function() {
+    window.google.maps.event.addListener(markers[i], 'click', function () {
         infoWindow.setContent(place.name + "<br>" + place.formatted_address);
         infoWindow.open(map, this);
     });
-    
+
     var results = document.getElementById('results');
     var tr = document.createElement('tr');
     results.appendChild(tr);
@@ -56,51 +59,53 @@ function createMarker (place, i) {
     var name = document.createTextNode(place.name);
     nameTd.appendChild(name);
     tr.appendChild(nameTd);
-    
-    tr.onclick = function() {
+
+    tr.onclick = function () {
         window.google.maps.event.trigger(markers[i], 'click');
 
-      };
-    }
-function getCharitiesSearch () {
-        var geocoder = new window.google.maps.Geocoder();
-        var address = input.value
-        geocoder.geocode({'address': address}, function(results, status) {
-            var pos = {
-                lat: results[0].geometry.location.lat(),
-                lng: results[0].geometry.location.lng()
-            };
-            var request = {
-                location: pos,
-                radius: 8047,
-                query:"Charity",
-            };
-            var service = new window.google.maps.places.PlacesService(map);
-            service.textSearch(request, callback);
-        })
     };
+}
+function getCharitiesSearch() {
+    var geocoder = new window.google.maps.Geocoder();
+    var address = input.value
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        var pos = {
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng()
+        };
+        var request = {
+            location: pos,
+            radius: 8047,
+            query: "Charity",
+        };
+        var service = new window.google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+
+
+    })
+};
 class Maps extends Component {
-    constructor(){
+    constructor() {
         super();
         this.getCharitiesGeolocation = this.getCharitiesGeolocation.bind(this)
         this.geoClicker = this.geoClicker.bind(this)
     }
-    createScript = ()=> {
+    createScript = () => {
         var scripter = document.createElement('script');
         scripter.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBX03GhMwKbff_jiNlFovzpYPB5L6LssMo&libraries=places&callback=initMap`;
         scripter.async = true;
         scripter.defer = true;
         document.body.appendChild(scripter)
     }
-    componentDidMount(){
-        this.createScript(); 
+    componentDidMount() {
+        this.createScript();
         window.initMap = this.initMap
     }
-    getCharitiesGeolocation () {
+    getCharitiesGeolocation() {
         var service = new window.google.maps.places.PlacesService(map);
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                function(position) {
+                function (position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
@@ -108,7 +113,7 @@ class Maps extends Component {
                     var request = {
                         location: pos,
                         radius: 8047,
-                        query:"Charity",
+                        query: "Charity",
                     };
                     infoWindow.open(map);
                     map.setCenter(pos);
@@ -117,41 +122,41 @@ class Maps extends Component {
                     // Charity search
                     service.textSearch(request, callback);
                 },
-                function() {
+                function () {
                     // handleLocationError(true, infoWindow, map.getCenter());
                 }
             )
-            }else {
-                // Browser doesn't support Geolocation
-                // handleLocationError(false, infoWindow, map.getCenter());
-            };
+        } else {
+            // Browser doesn't support Geolocation
+            // handleLocationError(false, infoWindow, map.getCenter());
+        };
         //   // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
+        map.addListener('bounds_changed', function () {
             searchBox.setBounds(map.getBounds());
         });
     };
-    geoClicker(){
+    geoClicker() {
         this.getCharitiesGeolocation()
     }
-    initMap  () {
+    initMap() {
         geoButton = document.getElementById("geoButton");
         infoWindow = new window.google.maps.InfoWindow();
         map = new window.google.maps.Map(document.getElementById("map"), {
-            center: {lat: 37.1, lng: -95.7},
+            center: { lat: 37.1, lng: -95.7 },
             zoom: 3,
             streetViewControl: false,
             mapTypeControl: false,
-        }); 
+        });
         input = document.getElementById('search');
         searchBox = new window.google.maps.places.SearchBox(input);
         // map.controls[window.google.maps.ControlPosition.TOP_CENTER].push(input);
-        map.addListener('bounds_changed', function() {
+        map.addListener('bounds_changed', function () {
             searchBox.setBounds(map.getBounds());
         });
-        searchBox.addListener('places_changed', function() {
+        searchBox.addListener('places_changed', function () {
             var bounds = new window.google.maps.LatLngBounds();
             var places = searchBox.getPlaces();
-            places.forEach(function(place) {
+            places.forEach(function (place) {
                 if (!place.geometry) {
                     console.log("Returned place contains no geometry");
                     return;
@@ -167,23 +172,38 @@ class Maps extends Component {
             getCharitiesSearch();
         });
     };
-    render () {
+    render() {
         return (
             <div>
-                <div>
-                    <input id= "search"/>
-                    <button class="btn btn-primary" onClick={this.geoClicker}id="geoButton">
-                    <i class="far fa-location"></i>
-                    Use Current location</button>
+                <div ref={this.googleMap} id="map"></div>
+
+                <div className="page_inner_div">
+                    <Navbar bg="light" expand="lg">
+                        <Navbar.Brand href="">Search by:</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+
+                                <Nav.Link href="" id="map_nav_font">Location: </Nav.Link>
+                                <FormControl id="search" type="text" placeholder="city" className="mr-sm-2" />
+                            </Nav>
+                            <Form inline>
+                                <Button variant="secondary" onClick={this.geoClicker} id="geoButton"><PushpinFilled />Geolocation</Button>
+                            </Form>
+                        </Navbar.Collapse>
+                    </Navbar>
+
+
+                    <div className="mapList" id="listing">
+                        <table id="resultsTable">
+                            <tbody id="results"></tbody>
+                        </table>
+                    </div>
                 </div>
-                <div ref={this.googleMap}id="map"></div>
-                <div id="listing">
-                    <table id="resultsTable">
-                    <tbody id="results"></tbody>
-                    </table>
-                </div>
+
+
             </div>
-            )
-        };
-    }
-    export default Maps;
+        )
+    };
+}
+export default Maps;

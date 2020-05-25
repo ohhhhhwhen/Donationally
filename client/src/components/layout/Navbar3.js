@@ -62,11 +62,13 @@ class Navbar3 extends Component {
               </Link>
                         </li>
 
+
+
                         <li className="nav-item">
                             <Link
                                 onClick={this.toggleNav}
                                 className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                                to="/donateform"
+                                to="/Search"
                             >
                                 Donate
               </Link>
@@ -81,24 +83,9 @@ class Navbar3 extends Component {
               </Link>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <NavDropdown title="Charity Search" id="basic-nav-dropdown">
-                                <NavDropdown.Item to="/Map"><Link
-                                    onClick={this.toggleNav}
-                                    className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                                    to="/Map"
-                                    style={{ color: "black" }}
-                                >By Map</Link></NavDropdown.Item>
-                                <NavDropdown.Item to="/Search"><Link
-                                    onClick={this.toggleNav}
-                                    className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                                    to="/Search"
-                                    style={{ color: "black" }}
-                                >By Name</Link></NavDropdown.Item>
-                            </NavDropdown>
-                        </li>
 
-                        <li class="nav-item dropdown">
+
+                        <li className="nav-item dropdown">
                             <NavDropdown title="Sign-In" id="basic-nav-dropdown">
                                 <NavDropdown.Item to="/portal"><Link
                                     onClick={this.toggleNav}
