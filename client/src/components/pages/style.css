@@ -89,6 +89,20 @@
     padding-top: 40px;
 }
 
+/* Map Nav Bar */
+
+#map_nav_font {
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black !important;
+}
+
+tbody:hover {
+    cursor: pointer;
+}
+
 /* Contact icons - FOOTER */
 
 .contact_icon {

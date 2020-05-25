@@ -15,11 +15,11 @@ function Hero() {
   }, []);
 
   const handleScroll = () => {
-    console.log(window.scrollY);
+
     let temp = window.scrollY;
     setScrollY({ y: temp });
   };
-  console.log(scrollY);
+
   return (
     <div className="hero_container">
       <nav
@@ -33,41 +33,43 @@ function Hero() {
           className="main-nav-bar__logo"
           data-track-action="navbar"
           data-track-label="logo"
-          href="/"
+          to="/"
           title="Donationally"
+
+        ></a>
+        <div className="main-nav-bar__logo__img">
+          <svg
+            src={White}
+            width="32px"
+            height="32px"
+            viewBox="0 0 32 32"
+          ></svg>
+
+        </div>
+        <div
+          className="hide-when-mid-size-and-smaller main-nav-bar__logo__text"
+          href="/"
+          style={{
+            position: "absolute",
+            left: "3%",
+          }}
         >
-          <div class="main-nav-bar__logo__img">
-            <svg
-              src={White}
-              width="32px"
-              height="32px"
-              viewBox="0 0 32 32"
-            ></svg>
-          </div>
-          <div
-            class="hide-when-mid-size-and-smaller main-nav-bar__logo__text"
-            href="/"
-            style={{
-              position: "absolute",
-              left: "3%",
-            }}
-          >
-            <img
-              src={White}
-              href="/"
-              alt=""
-              style={{ width: "45px", height: "45px", marginRight: "10px" }}
-            ></img>
-          </div>
-          <Form inline>
-            <Nav.Link href="/" style={{ color: "white" }}>
-              Home
+          <img
+            src={White}
+            to="/"
+            alt=""
+            style={{ width: "45px", height: "45px", marginRight: "10px" }}
+          ></img>
+        </div>
+        <Form inline>
+          <Nav.Link to="/" style={{ color: "white" }}>
+            Home
             </Nav.Link>
-            <Nav.Link href="/portal" style={{ color: "white" }}>
-              Members
+          <Nav.Link href="/portal" style={{ color: "white" }}>
+            Members
             </Nav.Link>
-          </Form>
-        </a>
+        </Form>
+
       </nav>
       <header className="hero">
         <div className="hero__background">
@@ -102,7 +104,7 @@ function Hero() {
           </div>
         </section>
       </header>
-    </div>
+    </div >
   );
 }
 

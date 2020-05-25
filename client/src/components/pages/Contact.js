@@ -227,10 +227,12 @@ class Contact extends Component {
                         </Form.Group>
 
                       </Col>
+                    </Form.Row>
+                    <Form.Row>
                       <Col>
                         <Form.Group controlId="formGroupText" className="site-form__form-group">
                           <Form.Label htmlFor="input-name" className="site-form__label">Location:</Form.Label>
-                          <Form.Control placeholder="location" type="text" name="location" onBlur={handleBlur} onChange={handleChange} className={`site-form__input ${errors.location && touched.location ? 'site-form__input-error' : ''}`} id="input-name" value={values.location} />
+                          <Form.Control placeholder="city" type="text" name="location" onBlur={handleBlur} onChange={handleChange} className={`site-form__input ${errors.location && touched.location ? 'site-form__input-error' : ''}`} id="input-name" value={values.location} />
                           {
                             errors.location && touched.location &&
                             <div className="site-form__error"> {errors.location} </div>

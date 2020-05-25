@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Map from './Map';
 import DeleteBtn from "../DeleteBtn";
 import Jumbotron from "../Jumbotron1";
 import API from "../../utils/API";
@@ -7,7 +8,7 @@ import { Col, Row, Container } from "../Grid";
 import { List, ListItem } from "../List";
 import { Input, TextArea, FormBtn } from "../Form";
 
-class Charities extends Component {
+class Charity extends Component {
   state = {
     Charities: [],
     name: "",
@@ -64,58 +65,63 @@ class Charities extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Charities Should I Read?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.Charity}
-                onChange={this.handleInputChange}
-                name="charity"
-                placeholder="Charity (required)"
-              />
-              {/* <Input
+      <div className="normal">
+        <Map />
+
+        <Container fluid>
+
+          <Row>
+            <Col size="md-6">
+              <Jumbotron>
+                <h1>What Charities Should I Read?</h1>
+              </Jumbotron>
+              <form>
+                <Input
+                  value={this.state.Charity}
+                  onChange={this.handleInputChange}
+                  name="charity"
+                  placeholder="Charity (required)"
+                />
+                {/* <Input
                 value={this.state.name}
                 onChange={this.handleInputChange}
                 name="name"
                 placeholder="Name (required)"
               /> */}
-              <FormBtn
-                disabled={!this.state.charity}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Charity
+                <FormBtn
+                  disabled={!this.state.charity}
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit Charity
               </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Charities On My List</h1>
-            </Jumbotron>
-            {this.state.charities.length ? (
-              <List>
-                {this.state.charities.map((charity) => (
-                  <ListItem key={charity._id}>
-                    <Link to={"/charities/" + charity._id}>
-                      <strong>{charity.name}</strong>
-                    </Link>
-                    <DeleteBtn
-                      onClick={() => this.deleteCharity(charity._id)}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+              </form>
+            </Col>
+            <Col size="md-6 sm-12">
+              <Jumbotron>
+                <h1>Charities On My List</h1>
+              </Jumbotron>
+              {this.state.charities.length ? (
+                <List>
+                  {this.state.charities.map((charity) => (
+                    <ListItem key={charity._id}>
+                      <Link to={"/charities/" + charity._id}>
+                        <strong>{charity.name}</strong>
+                      </Link>
+                      <DeleteBtn
+                        onClick={() => this.deleteCharity(charity._id)}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                  <h3>No Results to Display</h3>
+                )}
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }
 
-export default Charities;
+export default Charity;

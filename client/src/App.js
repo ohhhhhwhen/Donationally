@@ -7,14 +7,14 @@ import Home from './components/pages/Home';
 import Portal from './components/pages/Portal';
 import Staff from './components/pages/Staff';
 import Login from './components/auth/Login';
-import Map from './components/pages/Map';
+
 import Layout from './components/layout/Layout';
-import About from './components/pages/About';
+
 import Footer from './components/pages/Footer';
 import Contact from './components/pages/Contact';
 import Charity from './components/pages/Charity';
 import Search from './components/pages/Search';
-import Saved from './components/pages/Saved';
+
 import DonateForm from './components/pages/DonateForm';
 import Donate from './components/pages/Donate';
 
@@ -41,17 +41,16 @@ class App extends Component {
             <Layout>
               <div>
                 <Route path="/" exact={true} component={Home} />
-                <Route path="/about" exact={true} component={About} />
+
                 <Route path="/donateform" exact={true} component={DonateForm} />
                 <Route path="/donate" exact={true} component={Donate} />
                 <Route path="/News" exact={true} component={SearchNews} />
                 <Route path="/Charity" exact={true} component={Charity} />
                 <Route path="/Search" exact={true} component={Search} />
-                <Route path="/Saved" exact={true} component={Saved} />
                 <Route path="/contact" exact={true} component={Contact} />
                 <Route path="/portal" exact={true} component={Portal} />
                 <SecureRoute path="/staff" exact={true} component={Staff} />
-                <Route path="/map" exact={true} component={Map} />
+
                 <Route
                   path="/login"
                   render={() => <Login baseUrl="https://dev-240113.okta.com" />}

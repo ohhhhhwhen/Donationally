@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Saved from './Saved';
 
 class Staff extends Component {
   state = {
@@ -22,6 +23,7 @@ class Staff extends Component {
         <h1>Welcome {currentUserName}</h1>
         <p>Email: {currentUserEmail}</p>
         <p>You have reached the member portal of Donationally.com</p>
+        <Saved />
       </div>
     );
   }
