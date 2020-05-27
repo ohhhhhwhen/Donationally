@@ -6,6 +6,10 @@
     width: 100%;
 }
 
+.jumbotron {
+    background-color: "#5bc0de";
+}
+
 .card {
     width: 18rem;
 }
@@ -34,6 +38,10 @@
 
 #responsive_h1 {
     font-size: 3vw;
+}
+
+#responsive_h2 {
+    font-size: 2vw;
 }
 
 #responsive_h7 {

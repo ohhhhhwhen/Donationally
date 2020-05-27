@@ -179,7 +179,7 @@ class Maps extends Component {
 
                 <div className="page_inner_div">
                     <Navbar bg="light" expand="lg">
-                        <Navbar.Brand href="">Search by:</Navbar.Brand>
+                        <Navbar.Brand href="">Map Search:</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">

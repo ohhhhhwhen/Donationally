@@ -11,8 +11,9 @@ function Results({ children }) {
         paddingRight: 20,
         marginTop: 0,
         textAlign: "left",
+
       }}
-      className="jumbotron jumbotron-fluid border border-dark rounded"
+      className="jumbotron jumbotron-fluid"
     >
       {children}
     </div>
