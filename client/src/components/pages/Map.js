@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Navbar, Button, Nav, FormControl } from 'react-bootstrap';
 import { PushpinFilled } from '@ant-design/icons';
+import { Divider } from 'antd';
 import './Boxes.css';
 import './style.css';
 
@@ -176,7 +177,7 @@ class Maps extends Component {
     render() {
         return (
             <div>
-
+                <Divider><h3 style={{ fontWeight: "900", marginTop: "30px", paddingBottom: "20px" }} id="responsive_h1">Search for Charities</h3></Divider>
 
                 <div>
                     <Navbar bg="info" expand="lg">

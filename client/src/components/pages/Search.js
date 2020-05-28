@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Map from "./Map";
+import TopChar from '../layout/TopChar';
 import Heading from "../Heading";
 import SearchBar from "../SearchBar";
 import { Col, Row, Container } from "../Grid";
@@ -92,6 +93,7 @@ class Search extends Component {
     return (
       <div className="normal">
         <div className="page_inner_div">
+          <TopChar />
           <Map />
 
 
