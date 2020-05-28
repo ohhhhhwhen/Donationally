@@ -177,7 +177,7 @@ class Maps extends Component {
             <div>
                 <div ref={this.googleMap} id="map"></div>
 
-                <div className="page_inner_div">
+                <div className="normal">
                     <Navbar bg="light" expand="lg">
                         <Navbar.Brand href="">Map Search:</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />

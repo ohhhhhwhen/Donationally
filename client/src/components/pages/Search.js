@@ -14,6 +14,7 @@ import "./style.css";
 class Search extends Component {
   state = {
     search: "",
+    search2: "",
     results: []
   };
 
@@ -29,20 +30,6 @@ class Search extends Component {
   handleCharitySearch = event => {
     event.preventDefault();
     this.searchrapidapi(this.state.search);
-  };
-
-  searchrapidapi2 = query => {
-    let query1 = query.replace(" ", "+");
-    console.log("1. " + query1);
-    API.searchName(query1)
-
-      .then(res => this.setState({ results: res.data, search: "" }))
-      .catch(err => console.log(err));
-  };
-
-  handleCharitySearchByName = event => {
-    event.preventDefault();
-    this.searchrapidapi2(this.state.search);
   };
 
   handleInputChange = event => {
@@ -65,11 +52,45 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  searchrapidapi2 = query => {
+    let query1 = query.replace(" ", "+");
+    console.log("1. " + query1);
+    API.searchName(query1)
+
+      .then(res => this.setState({ results: res.data, search2: "" }))
+      .catch(err => console.log(err));
+  };
+
+  handleCharitySearchByName = event => {
+    event.preventDefault();
+    this.searchrapidapi2(this.state.search2);
+  };
+
+  handleInputChange2 = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleCharitySave2 = event => {
+    console.log(event, this.state);
+    API.saveCharity({
+      name: event.charityName,
+      description: event.tagLine,
+      cause: event.cause.causeName,
+      image: event.currentRating.ratingImage.large,
+      link: event.websiteURL
+    })
+      .then(res => this.setState({ search2: "" }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <div className="normal">
-        <Map />
         <div className="page_inner_div">
+        <Map />
           <div>
             <Navbar bg="light" expand="lg">
               <Navbar.Brand href="">Search by:</Navbar.Brand>
@@ -80,17 +101,17 @@ class Search extends Component {
                     Relevance:{" "}
                   </Nav.Link>
                   <FormControl
-                    id="search"
+                    id="search2"
                     type="text"
-                    value={this.state.search}
-                    onChange={this.handleInputChange}
-                    name="search"
+                    value={this.state.search2}
+                    onChange={this.handleInputChange2}
+                    name="search2"
                     placeholder="charity name"
                     className="mr-sm-2"
                   />
                   <Button
                     variant="secondary"
-                    disabled={!this.state.search}
+                    disabled={!this.state.search2}
                     onClick={this.handleCharitySearchByName}
                     id="geoButton"
                   >
@@ -149,6 +170,8 @@ class Search extends Component {
                               {result.cause && result.cause.causeName}
                               <br />
                               {result.tagLine}
+                              <br />
+                              {result.mailingAddress.city + " , " + result.mailingAddress.stateOrProvince + " " + result.mailingAddress.postalCode}
                             </Col>
                             <Col size="md-3">
                               <ViewBtn
