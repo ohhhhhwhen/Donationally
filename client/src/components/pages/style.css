@@ -126,11 +126,11 @@
 /* Map Nav Bar */
 
 #map_nav_font {
-    color: black;
+    color: white;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: black !important;
+    color: white !important;
 }
 
 tbody:hover {

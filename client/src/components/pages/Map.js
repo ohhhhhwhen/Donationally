@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Navbar, Button, Nav, FormControl } from 'react-bootstrap';
 import { PushpinFilled } from '@ant-design/icons';
+import './Boxes.css';
 import './style.css';
 
 
@@ -175,25 +176,26 @@ class Maps extends Component {
     render() {
         return (
             <div>
-                <div ref={this.googleMap} id="map"></div>
 
-                <div className="normal">
-                    <Navbar bg="light" expand="lg">
-                        <Navbar.Brand href="">Map Search:</Navbar.Brand>
+
+                <div>
+                    <Navbar bg="info" expand="lg">
+                        <Navbar.Brand href="" style={{ color: "white" }}>Map Search:</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
 
-                                <Nav.Link href="" id="map_nav_font">Location: </Nav.Link>
+                                <Nav.Link href="" id="map_nav_font" style={{ color: "white" }}>Location: </Nav.Link>
                                 <FormControl id="search" type="text" placeholder="city" className="mr-sm-2" />
                             </Nav>
                             <Form inline>
-                                <Button variant="secondary" onClick={this.geoClicker} id="geoButton"><PushpinFilled />Geolocation</Button>
+                                <Button variant="light" onClick={this.geoClicker} id="geoButton"><PushpinFilled />Geolocation</Button>
                             </Form>
                         </Navbar.Collapse>
                     </Navbar>
-
-
+                </div>
+                <div ref={this.googleMap} id="map"></div>
+                <div>
                     <div className="mapList" id="listing">
                         <table id="resultsTable">
                             <tbody id="results"></tbody>

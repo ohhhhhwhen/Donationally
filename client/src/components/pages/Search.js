@@ -10,6 +10,7 @@ import Results from "../Results";
 import ViewBtn from "../ViewBtn";
 import SaveBtn from "../SaveBtn";
 import "./style.css";
+import "./Boxes.css";
 
 class Search extends Component {
   state = {
@@ -90,10 +91,12 @@ class Search extends Component {
     return (
       <div className="normal">
         <div className="page_inner_div">
-        <Map />
-          <div>
-            <Navbar bg="light" expand="lg">
-              <Navbar.Brand href="">Search by:</Navbar.Brand>
+          <Map />
+
+
+          <div style={{ paddingTop: "20px" }}>
+            <Navbar bg="info" expand="lg">
+              <Navbar.Brand href="" style={{ color: "white" }}>Search by:</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -161,8 +164,8 @@ class Search extends Component {
                                   src={result.currentRating.ratingImage.large}
                                 />
                               ) : (
-                                <p>No image</p>
-                              )}
+                                  <p>No image</p>
+                                )}
                             </Col>
                             <Col size="md-7" className="text-justify">
                               <b>{result.charityName}</b>
@@ -192,6 +195,7 @@ class Search extends Component {
               </Col>
             </Row>
           </Container>
+
         </div>
       </div>
     );
