@@ -5,6 +5,7 @@ import SearchBar from "../SearchBar";
 import { Col, Row, Container } from "../Grid";
 import { Form, Navbar, Button, Nav, FormControl } from "react-bootstrap";
 import { Input, FormBtn } from "../Form";
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import API from "../../utils/API";
 import Results from "../Results";
 import ViewBtn from "../ViewBtn";
@@ -166,13 +167,15 @@ class Search extends Component {
                               ) : (
                                   <p>No image</p>
                                 )}
+                              <br />
+                              Info <QuestionCircleOutlined />
                             </Col>
                             <Col size="md-7" className="text-justify">
                               <b>{result.charityName}</b>
                               <br />
                               {result.cause && result.cause.causeName}
                               <br />
-                              {result.tagLine}
+                              <i>{result.tagLine}</i>
                               <br />
                               {result.mailingAddress.city + " , " + result.mailingAddress.stateOrProvince + " " + result.mailingAddress.postalCode}
                             </Col>
