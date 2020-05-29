@@ -2,6 +2,10 @@
   "name": "donation-app---project-3",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://gentle-tor-05703.herokuapp.com/",
+  "engines": {
+    "node": "10.3.0"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@okta/okta-react": "^1.4.1",
