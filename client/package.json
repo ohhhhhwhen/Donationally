@@ -4,7 +4,7 @@
   "private": true,
     "homepage" : "https://gentle-tor-05703.herokuapp.com/",
   "engines": {
-    "node": "10.3.0"
+    "node": "12.9.1"
   },
   "proxy": "http://localhost:3001",
   "dependencies": {
