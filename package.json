@@ -16,6 +16,7 @@
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "formik": "^2.1.4",
+    "if-env": "^1.0.4",
     "mongoose": "^5.9.13",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
