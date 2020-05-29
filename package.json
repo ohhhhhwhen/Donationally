@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "12.9.1",
-    "npm": "6.10.2" 
+    "node": "10.3.0"
   },
   "main": "server.js",
   "dependencies": {
