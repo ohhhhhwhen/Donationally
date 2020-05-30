@@ -21,8 +21,6 @@ class TopChar extends Component {
         modal4Visible: false,
         modal5Visible: false,
         modal6Visible: false,
-
-
     };
 
     setModal1Visible(modal1Visible) {
@@ -185,7 +183,7 @@ class TopChar extends Component {
                         <section id="search_table">
                             <div className="page_intro_div">
                                 <div className="row">
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-right" data-aos-delay="100" >
                                         <div className="core-item">
                                             <img src={Unicef} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal5Visible(true)} />
                                         </div>
@@ -228,7 +226,7 @@ class TopChar extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-right" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="100" >
                                         <div className="core-item">
                                             <img src={Who} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal2Visible(true)} />
                                         </div>

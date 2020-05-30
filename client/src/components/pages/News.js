@@ -57,9 +57,10 @@ function SearchNews() {
             Search
         </button>
         </form>
-        <Carousel autoplay>
+        <Carousel autoplay style={{ paddingBottom: "20px" }}>
           {result.map(reports => (
             <div>
+              <h2 id="responsive_h1" style={{ color: "black" }}>{reports.title}</h2>
               <img
                 style={{ height: '450px', width: '800px', margin: 'auto', fontFamily: 'Raleway Alternates Medium' }}
                 key={reports.title}
@@ -67,7 +68,7 @@ function SearchNews() {
                 alt={reports.title}
                 onClick={() => imgLink(reports.url)}
               />
-              <h2 style={{ color: "black" }}>{reports.title}</h2>
+
             </div>
           ))}
         </Carousel>

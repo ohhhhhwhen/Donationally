@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 
 function SaveBtn(props) {
+
   return (
     <span
       className="btn btn-warning btn-save"
@@ -10,6 +11,7 @@ function SaveBtn(props) {
       tabIndex="0"
     >
       Favorite
+
     </span>
   );
 }

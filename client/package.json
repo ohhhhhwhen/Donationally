@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-    "homepage" : "https://gentle-tor-05703.herokuapp.com/",
+  "homepage": "https://gentle-tor-05703.herokuapp.com/",
   "engines": {
     "node": "12.9.1"
   },

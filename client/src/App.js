@@ -12,7 +12,7 @@ import Layout from './components/layout/Layout';
 
 import Footer from './components/pages/Footer';
 import Contact from './components/pages/Contact';
-import Charity from './components/pages/Charity';
+import Policy from './components/pages/Policy';
 import Search from './components/pages/Search';
 
 import DonateForm from './components/pages/DonateForm';
@@ -45,7 +45,7 @@ class App extends Component {
                 <Route path="/donateform" exact={true} component={DonateForm} />
                 <Route path="/donate" exact={true} component={Donate} />
                 <Route path="/News" exact={true} component={SearchNews} />
-                <Route path="/Charity" exact={true} component={Charity} />
+                <Route path="/policy" exact={true} component={Policy} />
                 <Route path="/Search" exact={true} component={Search} />
                 <Route path="/contact" exact={true} component={Contact} />
                 <Route path="/portal" exact={true} component={Portal} />

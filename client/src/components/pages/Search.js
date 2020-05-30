@@ -5,8 +5,7 @@ import Heading from "../Heading";
 import SearchBar from "../SearchBar";
 import { Col, Row, Container } from "../Grid";
 import { Form, Navbar, Button, Nav, FormControl } from "react-bootstrap";
-import { Input, FormBtn } from "../Form";
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Modal, Pagination } from 'antd';
 import API from "../../utils/API";
 import Results from "../Results";
 import ViewBtn from "../ViewBtn";
@@ -18,7 +17,9 @@ class Search extends Component {
   state = {
     search: "",
     search2: "",
-    results: []
+    results: [],
+    loading: false,
+
   };
 
   searchrapidapi = query => {
@@ -33,6 +34,7 @@ class Search extends Component {
   handleCharitySearch = event => {
     event.preventDefault();
     this.searchrapidapi(this.state.search);
+    this.fetchData();
   };
 
   handleInputChange = event => {
@@ -43,6 +45,7 @@ class Search extends Component {
   };
 
   handleCharitySave = event => {
+
     console.log(event, this.state);
     API.saveCharity({
       name: event.charityName,
@@ -67,6 +70,7 @@ class Search extends Component {
   handleCharitySearchByName = event => {
     event.preventDefault();
     this.searchrapidapi2(this.state.search2);
+    this.fetchData();
   };
 
   handleInputChange2 = event => {
@@ -89,9 +93,23 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  fetchData = () => {
+    this.setState({ loading: true });
+
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 3000)
+  }
+
+
+
+
   render() {
+    const { loading } = this.state;
     return (
       <div className="normal">
+
+
         <div className="page_inner_div">
           <TopChar />
           <Map />
@@ -120,8 +138,11 @@ class Search extends Component {
                     disabled={!this.state.search2}
                     onClick={this.handleCharitySearchByName}
                     id="geoButton"
+                    disabled={loading}
                   >
-                    Search
+                    {loading && <i className="fa fa-refresh fa-spin"></i>}
+                    {loading && <span>searching...</span>}
+                    {!loading && <span>Search</span>}
                   </Button>
                 </Nav>
                 <Form inline>
@@ -142,8 +163,12 @@ class Search extends Component {
                     disabled={!this.state.search}
                     onClick={this.handleCharitySearch}
                     id="geoButton"
+                    disabled={loading}
                   >
-                    Search
+                    {loading && <i className="fa fa-refresh fa-spin"></i>}
+                    {loading && <span>searching...</span>}
+                    {!loading && <span>Search</span>}
+
                   </Button>
                 </Form>
               </Navbar.Collapse>
@@ -158,8 +183,11 @@ class Search extends Component {
                     {this.state.results &&
                       this.state.results.map(result => (
                         <li className="list-group-item" key={result.ein}>
+
                           <Row>
                             <Col size="md-2">
+                              <b>Rating: </b>
+                              <br />
                               {result.currentRating ? (
                                 <img
                                   alt="rating stars"
@@ -170,22 +198,42 @@ class Search extends Component {
                                   <p>No image</p>
                                 )}
                               <br />
-                              Info <QuestionCircleOutlined />
+
                             </Col>
                             <Col size="md-7" className="text-justify">
                               <b>{result.charityName}</b>
                               <br />
                               {result.cause && result.cause.causeName}
                               <br />
-                              <i>{result.tagLine}</i>
+                              <i>"{result.tagLine}"</i>
                               <br />
-                              {result.mailingAddress.city + " , " + result.mailingAddress.stateOrProvince + " " + result.mailingAddress.postalCode}
+                              {result.mailingAddress.streetAddress1 + ", " + result.mailingAddress.city + " , " + result.mailingAddress.stateOrProvince + " " + result.mailingAddress.postalCode}
+                              <br />
+                              <br />
+                              <b>Mission: </b> {result.mission}
+                              <br />
+                              <br />
+                              <b>EIN: </b> {result.ein}
+                              <br />
+                              <b>Subsection: </b> {result.irsClassification.subsection}
+                              <br />
+                              <b>Status: </b> {result.irsClassification.foundationStatus}
+                              <br />
+                              <b>Deductibility: </b> {result.irsClassification.deductibility}
+                              <br />
+                              <b>Filling: </b> {result.irsClassification.filingRequirement}
+                              <br />
+                              <b>Classification: </b> {result.irsClassification.classification}
+                              <br />
+
+
                             </Col>
                             <Col size="md-3">
                               <ViewBtn
                                 style={{ margin: "20px" }}
                                 onClick={() => window.open(result.websiteURL)}
                               />
+
                               <SaveBtn
                                 style={{ margin: "20px", color: "white" }}
                                 onClick={() => this.handleCharitySave(result)}
@@ -196,6 +244,7 @@ class Search extends Component {
                         </li>
                       ))}
                   </ul>
+                  <Pagination defaultCurrent={1} total={50} pageSize={10} responsive={true} />
                 </Results>
               </Col>
             </Row>
