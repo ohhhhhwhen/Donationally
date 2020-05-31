@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Map from "./Map";
-import TopChar from '../layout/TopChar';
+import TopChar from "../layout/TopChar";
 import Heading from "../Heading";
 import SearchBar from "../SearchBar";
 import { Col, Row, Container } from "../Grid";
 import { Form, Navbar, Button, Nav, FormControl } from "react-bootstrap";
-import { Modal, Pagination } from 'antd';
+import { Modal, Pagination } from "antd";
 import API from "../../utils/API";
 import Results from "../Results";
 import ViewBtn from "../ViewBtn";
@@ -20,8 +20,7 @@ class Search extends Component {
     results: [],
     loading: false,
     minValue: 0,
-    maxValue: 10,
-
+    maxValue: 10
   };
 
   handleChange = value => {
@@ -33,16 +32,15 @@ class Search extends Component {
     } else {
       this.setState({
         minValue: this.state.maxValue,
-        maxValue: value * 9
+        maxValue: value * 10
       });
     }
   };
 
   searchrapidapi = query => {
     let query1 = query.replace(" ", "+");
-    let query2 = 1;
     console.log("1. " + query1);
-    API.search(query1, query2)
+    API.search(query1)
 
       .then(res => this.setState({ results: res.data, search: "" }))
       .catch(err => console.log(err));
@@ -62,7 +60,6 @@ class Search extends Component {
   };
 
   handleCharitySave = event => {
-
     console.log(event, this.state);
     API.saveCharity({
       name: event.charityName,
@@ -116,26 +113,22 @@ class Search extends Component {
 
     setTimeout(() => {
       this.setState({ loading: false });
-    }, 3000)
-  }
-
-
-
+    }, 3000);
+  };
 
   render() {
     const { loading } = this.state;
     return (
       <div className="normal">
-
-
         <div className="page_inner_div">
           <TopChar />
           <Map />
 
-
           <div style={{ paddingTop: "20px" }}>
             <Navbar bg="info" expand="lg">
-              <Navbar.Brand href="" style={{ color: "white" }}>Search by:</Navbar.Brand>
+              <Navbar.Brand href="" style={{ color: "white" }}>
+                Search by:
+              </Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -186,7 +179,6 @@ class Search extends Component {
                     {loading && <i className="fa fa-refresh fa-spin"></i>}
                     {loading && <span>searching...</span>}
                     {!loading && <span>Search</span>}
-
                   </Button>
                 </Form>
               </Navbar.Collapse>
@@ -199,9 +191,9 @@ class Search extends Component {
                 <Results>
                   <ul className="list-group">
                     {this.state.results &&
-                      this.state.results.map(result => (
+                      this.state.results.length > 0 &&
+                      this.state.results.slice(this.state.minValue, this.state.maxValue).map(result => (
                         <li className="list-group-item" key={result.ein}>
-
                           <Row>
                             <Col size="md-2">
                               <b>Rating: </b>
@@ -213,10 +205,9 @@ class Search extends Component {
                                   src={result.currentRating.ratingImage.large}
                                 />
                               ) : (
-                                  <p>No image</p>
-                                )}
+                                <p>No image</p>
+                              )}
                               <br />
-
                             </Col>
                             <Col size="md-7" className="text-justify">
                               <b>{result.charityName}</b>
@@ -225,7 +216,13 @@ class Search extends Component {
                               <br />
                               <i>"{result.tagLine}"</i>
                               <br />
-                              {result.mailingAddress.streetAddress1 + ", " + result.mailingAddress.city + " , " + result.mailingAddress.stateOrProvince + " " + result.mailingAddress.postalCode}
+                              {result.mailingAddress.streetAddress1 +
+                                ", " +
+                                result.mailingAddress.city +
+                                " , " +
+                                result.mailingAddress.stateOrProvince +
+                                " " +
+                                result.mailingAddress.postalCode}
                               <br />
                               <br />
                               <b>Mission: </b> {result.mission}
@@ -233,18 +230,21 @@ class Search extends Component {
                               <br />
                               <b>EIN: </b> {result.ein}
                               <br />
-                              <b>Subsection: </b> {result.irsClassification.subsection}
+                              <b>Subsection: </b>{" "}
+                              {result.irsClassification.subsection}
                               <br />
-                              <b>Status: </b> {result.irsClassification.foundationStatus}
+                              <b>Status: </b>{" "}
+                              {result.irsClassification.foundationStatus}
                               <br />
-                              <b>Deductibility: </b> {result.irsClassification.deductibility}
+                              <b>Deductibility: </b>{" "}
+                              {result.irsClassification.deductibility}
                               <br />
-                              <b>Filling: </b> {result.irsClassification.filingRequirement}
+                              <b>Filling: </b>{" "}
+                              {result.irsClassification.filingRequirement}
                               <br />
-                              <b>Classification: </b> {result.irsClassification.classification}
+                              <b>Classification: </b>{" "}
+                              {result.irsClassification.classification}
                               <br />
-
-
                             </Col>
                             <Col size="md-3">
                               <ViewBtn
@@ -262,12 +262,17 @@ class Search extends Component {
                         </li>
                       ))}
                   </ul>
-                  <Pagination defaultCurrent={1} total={50} pageSize={10} responsive={true} />
+                  <Pagination
+                    defaultCurrent={1}
+                    defaultPageSize={10}
+                    total={100}
+                    responsive={true}
+                    onChange={this.handleChange}
+                  />
                 </Results>
               </Col>
             </Row>
           </Container>
-
         </div>
       </div>
     );
