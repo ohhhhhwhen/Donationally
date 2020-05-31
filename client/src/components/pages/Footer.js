@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import 'aos/dist/aos.css';
-
-import { Space } from 'antd';
+import { Modal } from 'antd';
 import { FacebookOutlined, MessageOutlined, TwitterOutlined, InstagramOutlined, LinkedinOutlined, MoreOutlined, CopyrightCircleOutlined } from '@ant-design/icons';
 import Icon from '../images/original_trans.png';
 
@@ -13,7 +12,12 @@ class Footer extends Component {
 
     state = {
         open: false,
-        width: window.innerWidth
+        width: window.innerWidth,
+        modal20Visible: false,
+    };
+
+    setModal20Visible(modal20Visible) {
+        this.setState({ modal20Visible });
     };
 
     updateWidth = () => {
@@ -40,41 +44,56 @@ class Footer extends Component {
 
     render() {
 
-        let linked = "https://www.linkedin.com/in/donationally-uw-full-stack-development-bootcamp-60bb911aa/";
+
 
         return (
 
 
             <section className="contact_lower_div">
+                <div>
+                    <Modal
+                        title="COPYRIGHT NOTICE"
+                        centered
+                        visible={this.state.modal20Visible}
+                        footer={null}
+                        onOk={() => this.setModal20Visible(false)}
+                        onCancel={() => this.setModal20Visible(false)}
+                    >
 
-                <Space size="large" style={{ color: "white" }}>
-                    <p>Contact Us</p>
-                    <p>Want to Volunteer?</p>
-                </Space>
+                        <p id="responsive_h7">
+                            All materials contained on this site http://www.donationally.com are protected by United States copyright law and may not be reproduced, distributed, transmitted, displayed, published, or broadcast without the prior written permission of Charity Navigator.
+                        </p>
+                        <p id="responsive_h7">
+                            Donationally® and the Donationally logo®,  are registered trademarks of Donationally, and may not be reproduced without prior written permission of Donationally.
+                        </p>
 
-                <MoreOutlined style={{ fontSize: '50px', color: "white" }} className="contact_icon" />
 
-                <Space size="large" style={{ color: "white" }}>
-                    <p type="button" href="/policy">PRIVACY POLICY</p>
-                    <p>DISCLAIMER</p>
-                    <p>DISCLOSURE</p>
-                </Space>
 
-                <MoreOutlined style={{ fontSize: '50px', color: "white" }} className="contact_icon" />
+                    </Modal>
+                </div>
 
-                <LinkedinOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" type="button" onClick={() => window.open(linked)} />
-                <FacebookOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" />
-                <MessageOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" />
-                <TwitterOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" />
-                <InstagramOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" />
-
-                <MoreOutlined style={{ fontSize: '50px', color: "white" }} className="contact_icon" />
-
-                <Space size="small" style={{ color: "white" }}>
-                    <p>Copyright</p><CopyrightCircleOutlined style={{ fontSize: '10px', color: "white" }} /><p> donationally 2020</p>
+                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <img src={Icon} alt="" style={{ width: "90px", height: "65px" }} id="contact_photo" ></img>
+                    <Navbar.Brand href="/" id="contact_photo">Donationally</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="mr-auto">
 
-                </Space>
+                            <Nav.Link href="https://www.linkedin.com/in/donationally/" target="blank_" rel="noopener noreferrer"><LinkedinOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" id="contact_photo" />LinkedIn</Nav.Link>
+                            <Nav.Link href="https://www.facebook.com/Donationally-100748411673069" target="blank_" rel="noopener noreferrer"><FacebookOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" id="contact_photo" />Facebook</Nav.Link>
+                            <Nav.Link href="/contact" target="blank_" rel="noopener noreferrer"><MessageOutlined style={{ fontSize: '40px', color: "white" }} className="contact_icon" id="contact_photo" />Message Us!</Nav.Link>
+
+                        </Nav>
+                        <Nav>
+                            <Nav.Link>Copyright &copy; 2020 | </Nav.Link>
+                            <Nav.Link href="/policy">PRIVACY POLICY</Nav.Link>
+                            <Nav.Link href="/policy">
+                                DISCLAIMER
+                            </Nav.Link>
+                            <Nav.Link onClick={() => this.setModal20Visible(true)}>COPYRIGHT NOTICE </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
 
             </section>
 

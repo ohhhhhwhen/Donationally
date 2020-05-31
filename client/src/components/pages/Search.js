@@ -19,13 +19,30 @@ class Search extends Component {
     search2: "",
     results: [],
     loading: false,
+    minValue: 0,
+    maxValue: 10,
 
+  };
+
+  handleChange = value => {
+    if (value <= 1) {
+      this.setState({
+        minValue: 0,
+        maxValue: 10
+      });
+    } else {
+      this.setState({
+        minValue: this.state.maxValue,
+        maxValue: value * 9
+      });
+    }
   };
 
   searchrapidapi = query => {
     let query1 = query.replace(" ", "+");
+    let query2 = 1;
     console.log("1. " + query1);
-    API.search(query1)
+    API.search(query1, query2)
 
       .then(res => this.setState({ results: res.data, search: "" }))
       .catch(err => console.log(err));
@@ -60,6 +77,7 @@ class Search extends Component {
 
   searchrapidapi2 = query => {
     let query1 = query.replace(" ", "+");
+
     console.log("1. " + query1);
     API.searchName(query1)
 

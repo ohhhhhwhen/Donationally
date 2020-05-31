@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASEURL =
-  "https://api.data.charitynavigator.org/v2/Organizations?app_id=3c0fc420&app_key=0c12428e18e7fb50a1af2d2a834c2eaf&pageSize=25&search=";
+  "https://api.data.charitynavigator.org/v2/Organizations?app_id=3c0fc420&app_key=0c12428e18e7fb50a1af2d2a834c2eaf&pageSize=10&search=";
 export default {
   searchnews: function (query) {
     return axios.get(
@@ -10,8 +10,8 @@ export default {
       "&apiKey=20ebd079386145bf8ef379ea799efbf4"
     );
   },
-  search: function (charity) {
-    return axios.get(BASEURL + charity + "&rated=true");
+  search: function (charity, pageNum) {
+    return axios.get("https://api.data.charitynavigator.org/v2/Organizations?app_id=3c0fc420&app_key=0c12428e18e7fb50a1af2d2a834c2eaf&pageSize=10&pageNum=" + pageNum + "&search=" + charity + "&rated=true");
   },
   searchName: function (query) {
     return axios.get(
