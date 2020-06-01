@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import Map from "./Map";
 import TopChar from "../layout/TopChar";
-import Heading from "../Heading";
-import SearchBar from "../SearchBar";
 import { Col, Row, Container } from "../Grid";
 import { Form, Navbar, Button, Nav, FormControl } from "react-bootstrap";
-import { Modal, Pagination } from "antd";
+import { Pagination } from "antd";
 import API from "../../utils/API";
 import Results from "../Results";
 import ViewBtn from "../ViewBtn";
@@ -19,6 +17,7 @@ class Search extends Component {
     search2: "",
     results: [],
     loading: false,
+    loading2: false,
     minValue: 0,
     maxValue: 10
   };
@@ -49,7 +48,7 @@ class Search extends Component {
   handleCharitySearch = event => {
     event.preventDefault();
     this.searchrapidapi(this.state.search);
-    this.fetchData();
+    this.fetchData2();
   };
 
   handleInputChange = event => {
@@ -111,13 +110,26 @@ class Search extends Component {
   fetchData = () => {
     this.setState({ loading: true });
 
+
     setTimeout(() => {
       this.setState({ loading: false });
+
+    }, 3000);
+  };
+
+  fetchData2 = () => {
+    this.setState({ loading2: true });
+
+
+    setTimeout(() => {
+      this.setState({ loading2: false });
+
     }, 3000);
   };
 
   render() {
     const { loading } = this.state;
+    const { loading2 } = this.state;
     return (
       <div className="normal">
         <div className="page_inner_div">
@@ -146,7 +158,7 @@ class Search extends Component {
                   />
                   <Button
                     variant="secondary"
-                    disabled={!this.state.search2}
+
                     onClick={this.handleCharitySearchByName}
                     id="geoButton"
                     disabled={loading}
@@ -171,14 +183,14 @@ class Search extends Component {
                   />
                   <Button
                     variant="secondary"
-                    disabled={!this.state.search}
+
                     onClick={this.handleCharitySearch}
                     id="geoButton"
-                    disabled={loading}
+                    disabled={loading2}
                   >
-                    {loading && <i className="fa fa-refresh fa-spin"></i>}
-                    {loading && <span>searching...</span>}
-                    {!loading && <span>Search</span>}
+                    {loading2 && <i className="fa fa-refresh fa-spin"></i>}
+                    {loading2 && <span>searching...</span>}
+                    {!loading2 && <span>Search</span>}
                   </Button>
                 </Form>
               </Navbar.Collapse>
@@ -205,8 +217,8 @@ class Search extends Component {
                                   src={result.currentRating.ratingImage.large}
                                 />
                               ) : (
-                                <p>No image</p>
-                              )}
+                                  <p>No image</p>
+                                )}
                               <br />
                             </Col>
                             <Col size="md-7" className="text-justify">

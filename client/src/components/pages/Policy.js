@@ -2194,6 +2194,7 @@ class Policy extends Component {
                                             data-custom-class="link"
                                             href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm
             </a>

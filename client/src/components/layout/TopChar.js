@@ -175,7 +175,7 @@ class TopChar extends Component {
 
 
                 </div>
-                <div data-aos="fade-up" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+                <div style={{ paddingTop: "0px", paddingBottom: "100px" }}>
 
                     <div className="page_intro_div">
                         <Divider><h3 style={{ fontWeight: "900", marginTop: "50px", paddingBottom: "20px" }} id="responsive_h1">Top National Charities</h3></Divider>
@@ -183,7 +183,7 @@ class TopChar extends Component {
                         <section id="search_table">
                             <div className="page_intro_div">
                                 <div className="row">
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-right" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
                                             <img src={Unicef} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal5Visible(true)} />
                                         </div>
@@ -193,7 +193,7 @@ class TopChar extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
                                             <img src={Red} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal1Visible(true)} />
                                         </div>
@@ -203,7 +203,7 @@ class TopChar extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-left" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
                                             <img src={Direct} alt="" style={{ height: "auto", width: "100%" }} type="button" onClick={() => this.setModal3Visible(true)} />
                                         </div>
@@ -217,7 +217,7 @@ class TopChar extends Component {
 
 
                                 <div className="row">
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-right" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
                                             <img src={Task} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal4Visible(true)} />
                                         </div>
@@ -226,7 +226,7 @@ class TopChar extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4">
                                         <div className="core-item">
                                             <img src={Who} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal2Visible(true)} />
                                         </div>
@@ -235,7 +235,7 @@ class TopChar extends Component {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-left" data-aos-delay="100" >
+                                    <div className="col-lg-4 col-sm-12 mb-4">
                                         <div className="core-item">
                                             <img src={Doc} alt="" style={{ height: "auto", width: "100%" }} type="button" onClick={() => this.setModal6Visible(true)} />
                                         </div>

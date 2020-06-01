@@ -35,7 +35,7 @@ class Navbar3 extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2 navbar-fixed-top">
                 <Link className="navbar-brand" to="/" style={{ fontWeight: "700" }}>
                     DONATIONALLY
         </Link>

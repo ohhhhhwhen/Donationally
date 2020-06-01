@@ -24,7 +24,7 @@ function Hero() {
     <div className="hero_container">
       <nav
         className={
-          scrollY.y >= 300
+          scrollY.y >= 600
             ? `js-main-nav-bar js-main-nav-bar--transparent main-nav-bar`
             : `js-main-nav-bar js-main-nav-bar--transparent main-nav-bar hide`
         }
@@ -61,14 +61,20 @@ function Hero() {
             style={{ width: "45px", height: "45px", marginRight: "10px" }}
           ></img>
         </div>
-        <Form inline>
-          <Nav.Link to="/" style={{ color: "white" }}>
-            Home
+
+        <Nav.Link href="/" style={{ color: "white" }}>
+          Home
             </Nav.Link>
-          <Nav.Link href="/portal" style={{ color: "white" }}>
-            Members
+        <Nav.Link href="/Search" style={{ color: "white" }}>
+          Donate
             </Nav.Link>
-        </Form>
+        <Nav.Link href="/portal" style={{ color: "white" }}>
+          Members
+            </Nav.Link>
+        <Nav.Link href="/contact" style={{ color: "white" }}>
+          Contact
+            </Nav.Link>
+
 
       </nav>
       <header className="hero">
@@ -104,7 +110,7 @@ function Hero() {
           </div>
         </section>
       </header>
-    </div >
+    </div>
   );
 }
 
