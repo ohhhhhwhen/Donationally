@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Map from "./Map";
+
 import TopChar from "../layout/TopChar";
 import { Col, Row, Container } from "../Grid";
 import { Form, Navbar, Button, Nav, FormControl } from "react-bootstrap";
@@ -19,7 +20,8 @@ class Search extends Component {
     loading: false,
     loading2: false,
     minValue: 0,
-    maxValue: 10
+    maxValue: 10,
+
   };
 
   handleChange = value => {
@@ -130,6 +132,7 @@ class Search extends Component {
   render() {
     const { loading } = this.state;
     const { loading2 } = this.state;
+
     return (
       <div className="normal">
         <div className="page_inner_div">

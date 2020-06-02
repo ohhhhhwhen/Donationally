@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import API from "../.././utils/API";
 import 'antd/dist/antd.css';
-import './test.css';
+import './news.css';
 import { Carousel } from 'antd';
+import { ReadOutlined } from '@ant-design/icons';
 import './style.css'
 
 function SearchNews() {
@@ -38,7 +39,7 @@ function SearchNews() {
   return (
     <div className="container">
       <div className="page_inner_div_news">
-        <h1>Search Current News</h1>
+        <h1 id="responsive_h1" style={{ fontWeight: "900px" }}>Search Current News <ReadOutlined /></h1>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
@@ -46,7 +47,8 @@ function SearchNews() {
               onChange={handleInputChange}
               className="form-control"
               placeholder="Corona Virus"
-              autoComplete="off"
+              autoComplete="on"
+
             />
           </div>
           <button
@@ -57,10 +59,10 @@ function SearchNews() {
             Search
         </button>
         </form>
-        <Carousel autoplay style={{ paddingBottom: "20px" }}>
+        <Carousel autoplay dots="false" style={{ paddingBottom: "20px" }}>
           {result.map(reports => (
             <div>
-              <h2 id="responsive_h1" style={{ color: "black" }}>{reports.title}</h2>
+              <h4 style={{ color: "black" }}>{reports.title}</h4>
               <img
                 style={{ height: '450px', width: '800px', margin: 'auto', fontFamily: 'Raleway Alternates Medium' }}
                 key={reports.title}

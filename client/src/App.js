@@ -19,7 +19,7 @@ import DonateForm from './components/pages/DonateForm';
 import Donate from './components/pages/Donate';
 
 import "./App.css";
-import SearchNews from "./components/pages/News";
+
 
 function onAuthRequired({ history }) {
   history.push("/login");
@@ -41,10 +41,8 @@ class App extends Component {
             <Layout>
               <div>
                 <Route path="/" exact={true} component={Home} />
-
                 <Route path="/donateform" exact={true} component={DonateForm} />
                 <Route path="/donate" exact={true} component={Donate} />
-                <Route path="/News" exact={true} component={SearchNews} />
                 <Route path="/policy" exact={true} component={Policy} />
                 <Route path="/Search" exact={true} component={Search} />
                 <Route path="/contact" exact={true} component={Contact} />

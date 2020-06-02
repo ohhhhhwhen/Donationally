@@ -175,17 +175,18 @@ class TopChar extends Component {
 
 
                 </div>
-                <div style={{ paddingTop: "0px", paddingBottom: "100px" }}>
 
+                <div style={{ paddingTop: "0px", paddingBottom: "100px" }}>
+                    <Divider><h3 style={{ fontWeight: "900", marginTop: "50px", paddingBottom: "20px" }} id="responsive_h1">Top National Charities</h3></Divider>
                     <div className="page_intro_div">
-                        <Divider><h3 style={{ fontWeight: "900", marginTop: "50px", paddingBottom: "20px" }} id="responsive_h1">Top National Charities</h3></Divider>
+
 
                         <section id="search_table">
                             <div className="page_intro_div">
                                 <div className="row">
                                     <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
-                                            <img src={Unicef} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal5Visible(true)} />
+                                            <img src={Unicef} alt="" fluid="true" style={{ width: "100%", height: "100%" }} type="button" onClick={() => this.setModal5Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}><b>UNICEF</b></h6>
@@ -195,7 +196,7 @@ class TopChar extends Component {
 
                                     <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
-                                            <img src={Red} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal1Visible(true)} />
+                                            <img src={Red} alt="" fluid="true" style={{ width: "100%", height: "100%" }} type="button" onClick={() => this.setModal1Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}><b>AMERICAN RED CROSS</b></h6>
@@ -205,7 +206,7 @@ class TopChar extends Component {
 
                                     <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
-                                            <img src={Direct} alt="" style={{ height: "auto", width: "100%" }} type="button" onClick={() => this.setModal3Visible(true)} />
+                                            <img src={Direct} alt="" fluid="true" style={{ height: "100%", width: "100%" }} type="button" onClick={() => this.setModal3Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}>DIRECT RELIEF</h6>
@@ -219,7 +220,7 @@ class TopChar extends Component {
                                 <div className="row">
                                     <div className="col-lg-4 col-sm-12 mb-4" >
                                         <div className="core-item">
-                                            <img src={Task} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal4Visible(true)} />
+                                            <img src={Task} alt="" fluid="true" style={{ width: "100%", height: "100%" }} type="button" onClick={() => this.setModal4Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}>THE TASK FORCE FOR GLOBAL HEALTH</h6>
@@ -228,7 +229,7 @@ class TopChar extends Component {
 
                                     <div className="col-lg-4 col-sm-12 mb-4">
                                         <div className="core-item">
-                                            <img src={Who} alt="" style={{ width: "100%" }} type="button" onClick={() => this.setModal2Visible(true)} />
+                                            <img src={Who} alt="" fluid="true" style={{ width: "100%", height: "100%" }} type="button" onClick={() => this.setModal2Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}>WORLD HEATH ORGANIZATION</h6>
@@ -237,7 +238,7 @@ class TopChar extends Component {
 
                                     <div className="col-lg-4 col-sm-12 mb-4">
                                         <div className="core-item">
-                                            <img src={Doc} alt="" style={{ height: "auto", width: "100%" }} type="button" onClick={() => this.setModal6Visible(true)} />
+                                            <img src={Doc} alt="" fluid="true" style={{ height: "100%", width: "100%" }} type="button" onClick={() => this.setModal6Visible(true)} />
                                         </div>
                                         <div className="search_caption" style={{ backgroundColor: "#f7f7f7" }}>
                                             <h6 id="responsive_h7" style={{ fontStyle: "italic", fontWeight: "700" }}>DOCTORS WITHOUT BORDERS</h6>

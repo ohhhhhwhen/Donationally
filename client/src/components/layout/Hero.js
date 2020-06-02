@@ -66,7 +66,7 @@ function Hero() {
           Home
             </Nav.Link>
         <Nav.Link href="/Search" style={{ color: "white" }}>
-          Donate
+          Charity
             </Nav.Link>
         <Nav.Link href="/portal" style={{ color: "white" }}>
           Members

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import News from './News';
 import "../../index.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -117,10 +118,13 @@ const Home = (props) => {
               <BarChartOutlined style={{ fontSize: '40px' }} className="contact_icon" />
               <DollarCircleOutlined style={{ fontSize: '40px' }} className="contact_icon" />
             </div>
+
           </div>
         </div>
       </div>
-
+      <div className="normal" style={{ backgroundColor: "#f9f9f9" }}>
+        <News />
+      </div>
 
     </div>
 
