@@ -53,7 +53,7 @@ const Home = (props) => {
           <section id="core_table">
             <div className="page_intro_div">
               <div className="row">
-                <div className="col-lg-4 col-sm-6 mb-4" data-aos="fade-down" data-aos-delay="100">
+                <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-down" data-aos-delay="100">
                   <div className="core-item">
                     <img src={Girl} alt="" style={{ border: "5px solid white", width: "100%" }} />
                   </div>
@@ -63,7 +63,7 @@ const Home = (props) => {
                   </div>
                 </div>
 
-                <div className="col-lg-4 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                <div className="col-lg-4 col-sm-12 mb-4" data-aos="zoom-in" data-aos-delay="100">
                   <div className="core-item">
                     <img src={Kids2} alt="" style={{ border: "5px solid white", width: "100%" }} />
                   </div>
@@ -73,7 +73,7 @@ const Home = (props) => {
                   </div>
                 </div>
 
-                <div className="col-lg-4 col-sm-6 mb-4" data-aos="fade-left" data-aos-delay="100">
+                <div className="col-lg-4 col-sm-12 mb-4" data-aos="fade-left" data-aos-delay="100">
                   <div className="core-item">
                     <img src={Community} alt="" style={{ border: "5px solid white", width: "100%" }} />
                   </div>

@@ -3,7 +3,7 @@ import { Nav, Form } from "react-bootstrap";
 import "./navbar.css";
 import "./hero.css";
 
-import video from "../videos/alternate_video2.mp4";
+
 
 import White from "../images/white.png";
 
@@ -85,7 +85,7 @@ function Hero() {
             muted
           // poster="https://www.pexels.com/assets/videos/free-videos-7daa2ef41a140f70c757ce91913a4ecb90570b7d7cd2b401bae868350e02c83a.jpg"
           >
-            <source src={video} fluid="true" type="video/mp4"></source>
+            <source src={"https://donationally-video.s3.amazonaws.com/alternate_video2.mp4"} fluid="true" type="video/mp4"></source>
           </video>
         </div>
         <section className="hero__content hero__content--centered">
