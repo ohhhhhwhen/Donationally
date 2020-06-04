@@ -211,7 +211,7 @@ class Maps extends Component {
                 <div ref={this.googleMap} id="map"></div>
                 <div>
                     <div className="mapList" id="listing" >
-                        <table id="resultsTable" style={{ marginRight: "auto", marginLeft: "auto", marginBottom: "20px" }}>
+                        <table id="resultsTable" style={{ marginRight: "auto", marginLeft: "auto", marginTop: "20px" }}>
                             <tbody id="results"></tbody>
                         </table>
                     </div>
