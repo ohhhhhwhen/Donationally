@@ -62,8 +62,8 @@ function createMarker(place, i) {
     tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
     trTwo.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
 
-    tr.style.border="1px solid black";
-    
+    tr.style.border = "1px solid black";
+
     var nameTd = document.createElement('td');
     var addressTd = document.createElement('addressTd');
 
@@ -74,7 +74,7 @@ function createMarker(place, i) {
 
     tr.appendChild(nameTd);
     tr.appendChild(addressTd);
-    
+
     tr.onclick = function () {
         window.google.maps.event.trigger(markers[i], 'click');
 
@@ -211,7 +211,7 @@ class Maps extends Component {
                 <div ref={this.googleMap} id="map"></div>
                 <div>
                     <div className="mapList" id="listing" >
-                        <table id="resultsTable" style={{marginRight: "auto", marginLeft: "auto"}}>
+                        <table id="resultsTable" style={{ marginRight: "auto", marginLeft: "auto", marginBottom: "20px" }}>
                             <tbody id="results"></tbody>
                         </table>
                     </div>
