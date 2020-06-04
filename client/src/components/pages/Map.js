@@ -49,19 +49,32 @@ function createMarker(place, i) {
         position: place.geometry.location
     });
     window.google.maps.event.addListener(markers[i], 'click', function () {
+        // console.log("this is place!" + JSON.stringify(place))
         infoWindow.setContent(place.name + "<br>" + place.formatted_address);
         infoWindow.open(map, this);
     });
 
     var results = document.getElementById('results');
     var tr = document.createElement('tr');
+    var trTwo = document.createElement('tr');
     results.appendChild(tr);
-    tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
-    var nameTd = document.createElement('td');
-    var name = document.createTextNode(place.name);
-    nameTd.appendChild(name);
-    tr.appendChild(nameTd);
 
+    tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+    trTwo.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+
+    tr.style.border="1px solid black";
+    
+    var nameTd = document.createElement('td');
+    var addressTd = document.createElement('addressTd');
+
+    var name = document.createTextNode(place.name);
+    var addressTable = document.createTextNode(place.formatted_address);
+    nameTd.appendChild(name);
+    addressTd.appendChild(addressTable);
+
+    tr.appendChild(nameTd);
+    tr.appendChild(addressTd);
+    
     tr.onclick = function () {
         window.google.maps.event.trigger(markers[i], 'click');
 
@@ -197,8 +210,8 @@ class Maps extends Component {
                 </div>
                 <div ref={this.googleMap} id="map"></div>
                 <div>
-                    <div className="mapList" id="listing">
-                        <table id="resultsTable">
+                    <div className="mapList" id="listing" >
+                        <table id="resultsTable" style={{marginRight: "auto", marginLeft: "auto"}}>
                             <tbody id="results"></tbody>
                         </table>
                     </div>

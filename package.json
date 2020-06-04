@@ -19,6 +19,7 @@
     "formik": "^2.1.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.13",
+    "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
