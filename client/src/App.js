@@ -32,7 +32,7 @@ class App extends Component {
         <Security
           issuer="https://dev-240113.okta.com/oauth2/default"
           client_id="0oaad7oto4uSwXPVM4x6"
-          redirect_uri={window.location.origin + "/implicit/callback"}
+          redirect_uri={"https://donationally.herokuapp.com" + "/implicit/callback"}
           onAuthRequired={onAuthRequired}
         >
           <div className="App">
