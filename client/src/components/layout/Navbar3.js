@@ -112,7 +112,7 @@ class Navbar3 extends Component {
                                 className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
                                 to="/saved"
                             >
-                                Contact Us
+                                Favorites
               </Link>
                         </li>
 
