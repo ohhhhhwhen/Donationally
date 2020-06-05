@@ -14,7 +14,7 @@ import Footer from './components/pages/Footer';
 import Contact from './components/pages/Contact';
 import Policy from './components/pages/Policy';
 import Search from './components/pages/Search';
-
+import Saved from './components/pages/Saved';
 import DonateForm from './components/pages/DonateForm';
 import Donate from './components/pages/Donate';
 
@@ -45,6 +45,7 @@ class App extends Component {
                 <Route path="/donate" exact={true} component={Donate} />
                 <Route path="/policy" exact={true} component={Policy} />
                 <Route path="/Search" exact={true} component={Search} />
+                <Route path="/saved" exact={true} component={Saved} />
                 <Route path="/contact" exact={true} component={Contact} />
                 <Route path="/portal" exact={true} component={Portal} />
                 <SecureRoute path="/staff" exact={true} component={Staff} />

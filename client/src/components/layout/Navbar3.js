@@ -106,6 +106,16 @@ class Navbar3 extends Component {
                             </NavDropdown>
                         </li>
 
+                        <li className="nav-item">
+                            <Link
+                                onClick={this.toggleNav}
+                                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                                to="/saved"
+                            >
+                                Contact Us
+              </Link>
+                        </li>
+
 
                         <li className="nav-item">
                             <Link
