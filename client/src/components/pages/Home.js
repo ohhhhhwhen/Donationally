@@ -59,7 +59,7 @@ const Home = (props) => {
                   </div>
                   <div className="core_caption">
                     <h6 id="responsive_h7" style={{ fontStyle: "italic", color: "white", fontWeight: "700" }}>COMPASSION</h6>
-                    <p id="responsive_h7" style={{ color: "white" }}>We believe that all perons deserve to be treated with respect, compassion and dignity.</p>
+                    <p id="responsive_h7" style={{ color: "white" }}>We believe that every person deserve to be treated with respect, compassion and dignity.</p>
                   </div>
                 </div>
 

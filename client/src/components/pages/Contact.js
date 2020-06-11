@@ -68,7 +68,7 @@ class Contact extends Component {
           <div className="container">
             <div className="content-section-heading">
               <h3 className="text-dark mb-0">Get to know Us..</h3>
-              <h1 className="mb-5" style={{ color: "white" }}>Creator and Founder of DONATIONALLY ...</h1>
+              <h1 className="mb-5" style={{ color: "white" }}>Creator and Co-Founder of DONATIONALLY</h1>
             </div>
             <div className="row">
               <div className="col-lg-2 col-md-6 mb-5 mb-lg-0">
@@ -147,7 +147,6 @@ class Contact extends Component {
               initialValues={{
                 name: '',
                 email: '',
-                title: '',
                 location: '',
                 subject: '',
                 message: ''
@@ -163,9 +162,6 @@ class Contact extends Component {
                 if (!values.email) {
                   errors.email = 'Email is required';
                 }
-                if (!values.title) {
-                  errors.title = 'Title is required';
-                }
                 if (!values.location) {
                   errors.location = 'Location is required';
                 }
@@ -177,7 +173,6 @@ class Contact extends Component {
               validationSchema={Yup.object().shape({
                 name: Yup.string().required(),
                 email: Yup.string().email().required(),
-                title: Yup.string().required(),
                 location: Yup.string().required(),
                 subject: Yup.string().required(),
                 message: Yup.string().required()
@@ -215,19 +210,7 @@ class Contact extends Component {
                       </Col>
                     </Form.Row>
 
-                    <Form.Row>
-                      <Col>
-                        <Form.Group controlId="formGroupText" className="site-form__form-group">
-                          <Form.Label htmlFor="input-name" className="site-form__label">Title</Form.Label>
-                          <Form.Control placeholder="title/ company" type="text" name="title" onBlur={handleBlur} onChange={handleChange} className={`site-form__input ${errors.title && touched.title ? 'site-form__input-error' : ''}`} id="input-name" value={values.title} />
-                          {
-                            errors.title && touched.title &&
-                            <div className="site-form__error"> {errors.title} </div>
-                          }
-                        </Form.Group>
 
-                      </Col>
-                    </Form.Row>
                     <Form.Row>
                       <Col>
                         <Form.Group controlId="formGroupText" className="site-form__form-group">
