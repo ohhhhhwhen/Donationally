@@ -11,7 +11,7 @@ function ViewBtn(props) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      Donate
+      Info
     </span>
   );
 }

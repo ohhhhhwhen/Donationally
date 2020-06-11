@@ -264,7 +264,7 @@ class Search extends Component {
                             <Col size="md-3">
                               <ViewBtn
                                 style={{ margin: "20px" }}
-                                onClick={() => window.open(result.websiteURL + "/donate")}
+                                onClick={() => window.open(result.websiteURL)}
                               />
 
                               <SaveBtn
